@@ -18,8 +18,7 @@
     padding: 10px;
     display: flex;
     align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
+    margin: 10px;
 }
 
 .searchBox{
