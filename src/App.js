@@ -3,7 +3,7 @@ import Home from './Home';
 import Trend from './Trend';
 import Course from './Course'
 import Team from './Team'
-import {logo} from './resource/logo.png'
+// import {logo} from './resource/logo.png'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ function App() {
       <Router>
       <div>
         <NavBar />
-        <div className="content">
+        <div className="content" style={{"width":"100%"}}>
           <Switch>
               <Route exact path="/"> 
                 <Home/>

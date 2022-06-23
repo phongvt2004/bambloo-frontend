@@ -10,7 +10,7 @@ class Header extends Component {
         const path = this.props.location.pathname.slice(1);
         return ( 
             < nav className = "navbar" >
-                <img className = "logo" alt = "Skitus Logo"src = { logo } >
+                <img className = "logo" alt = "Bambloo Logo"src = { logo } >
                 </img> 
                 <h1 className = "part" alt = "web-part" id = "web-part" > { path } </h1> 
                 <div className = "links" >
