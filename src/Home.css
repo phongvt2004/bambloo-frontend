@@ -34,6 +34,7 @@ h1{
 #p1,#p2{
     width: 50%;
 }
+
 #left{
     flex: 50%;
     background-color: transparent;
@@ -42,7 +43,6 @@ h1{
     flex: 50%;
     background-color: transparent;
     display: flex;
-    
 }
 #btn1{
     margin-left: 26px;
@@ -52,7 +52,7 @@ h1{
     background: linear-gradient(278.76deg, #017AF1 10.43%, #01F4FE 106.11%);
     box-shadow: 0px 33px 43px -15px rgba(1, 122, 241, 0.35);
     border-radius: 100px;
-    width: calc(50% - 42px);
+    width: calc(25% - 42px);
     align-content: center;
     border: none;
 }
@@ -64,7 +64,7 @@ h1{
     border: 2px solid #000000;
     border-radius: 100px;
     font-size: 24px;
-    width: calc(50% - 42px);
+    width: calc(25% - 42px);
     align-content: center;
 }
 .homeBtn{
@@ -74,13 +74,67 @@ h1{
     position:absolute;
     bottom: -15%;
 }
-.box{
-    --h: calc(100%/3);
-    height: --h;
-    width: --h;
-    background-color: #F3F3F3;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0) 100%);
-    backdrop-filter: blur(5px);
+.boxContent{
+    padding: 25px;
+    height: 175px;
+    width:  200px;
     border-radius: 15px;
-    margin: auto;
+}
+.icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 7px;
+    margin  : 10px;
+}
+.icon > i{
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+    background-color: transparent;
+}
+#box1{
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(35px);    
+    border-radius: 15px;
+}
+#box2{
+    position: absolute;
+    top: 157px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.67);
+    backdrop-filter: blur(35px);
+    border-radius: 15px;
+}
+#box3{
+    position: absolute;
+    bottom: -28%;
+    left: 80px;
+    background: rgba(255, 255, 255, 0.67);
+    backdrop-filter: blur(35px);
+    border-radius: 15px;
+}
+#i1{
+    background-color: #362DF0;
+}
+#i3{
+    background-color: #06B6F6;
+}
+#i2{
+    background-color: rgba(206, 35, 186, 1);
+
+}
+.boxContent > p.pnum {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 10px;
+}
+.boxContent > p.pchar {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.4);
+    margin: 10px;
 }
