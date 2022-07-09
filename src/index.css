@@ -4,12 +4,7 @@
 }
 
 * {
-    background-color: #F5F5F5;
     font-family: 'gotham';
-    color: black;
-}
-body{
-    background-image: url("./resource/background1.png");
 }
 .logo {
     width: 109px;
@@ -96,11 +91,13 @@ body{
 }
 
 @media screen and (max-width: 620px) {
+
 .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
 }
 }
+
 .accBtn{
     border-radius: 25px;
     margin-left: 26px;

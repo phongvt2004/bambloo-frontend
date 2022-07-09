@@ -4,32 +4,28 @@ import Trend from './Trend';
 import Course from './Course'
 import Team from './Team'
 import background1 from './resource/background1.png'
+import { Route, Router, Routes, BrowserRouter} from 'react-router-dom';
 // import {logo} from './resource/logo.png'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+// import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-        <Router>
-            <NavBar />
-            <div className="content" style={{"width":"100%"}}>
-              <Switch>
-                  <Route exact path="/"> 
-                    <Home/>
-                  </Route>
-                  <Route path="/Trend"> 
-                    <Trend/>
-                  </Route>
-                  <Route path="/Course"> 
-                    <Course/>
-                  </Route>
-                  <Route path="/Team"> 
-                    <Team/>
-                  </Route>
-              </Switch>
-            </div>
-        </Router>
+      <NavBar />
+      <BrowserRouter>
+        <div className='content'>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/COurses' element={<Course/>}/>
+            <Route path='/Trend' element={<Trend/>}/>
+            <Route path='/Team' element={<Team/>}/>
+          </Routes>
+        </div>  
+      </BrowserRouter>
+      <div className="background">
+                <img src={background1} id="BackgroundImg" alt="img" />
+      </div>
     </div> 
   );
 }
