@@ -2,9 +2,12 @@
     font-family: 'gotham';
     src: local('Gotham'), url(./font/SVN-Gotham-Black.otf) format('truetype');
 }
-
+body{
+    background-image: url("./resource/background4.png");
+  }
 * {
     font-family: 'gotham';
+    color:black;
 }
 .logo {
     width: 109px;
@@ -24,9 +27,21 @@
 
 .navbar .links {
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
+
+.accBtn{
+    border-radius: 25px;
+    margin-left: 26px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    padding: 10px;
+}
 .navbar a {
+    /* color: black; */
     margin-left: 26px;
     text-decoration: none;
     padding: 10px;
@@ -97,12 +112,7 @@
     padding: 0 6px;
 }
 }
-
-.accBtn{
-    border-radius: 25px;
-    margin-left: 26px;
-    color: white;
-    background-color: black;
-    font-size: 16px;
-    padding: 10px;
+.links >.accBtn:hover{
+    color: black;
+    background-color: white;
 }

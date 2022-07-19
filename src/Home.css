@@ -1,6 +1,6 @@
 *{ 
     position: relative;
-    background-color: transparent;  
+    /* background-color: transparent;   */
     /* overflow: hidden; */
 }
 .Home{
@@ -157,7 +157,7 @@ h1{
     #box1{
         top: calc(50px - 25%);
         left: calc(-20px - 25%);
-        background-color: black;
+        /* background-color: black; */
     }
     #box2{
         top: calc(157px - 25%);

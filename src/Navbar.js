@@ -17,17 +17,18 @@ class Header extends Component {
                     <a href = "/" > Trang chủ </a> 
                     <a href = "/Trend" > Xu hướng </a> 
                     <a href = "/Course" > Khóa học </a> 
-                    <a href = "/Team" > Đội ngũ </a> 
+                    <a href = "/Team" > Đội ngũ </a>
+                    <div class="searchBox">
+                        <input class="searchInput"type="text" name="" placeholder="Search"/>
+                        <button class="searchButton" href="#">
+                            <i class="material-icons">
+                                search
+                            </i>    
+                        </button>
+                    </div>
+                    <a href='/Login' className="accBtn">Đăng Nhập</a> 
                 </div> 
-                <div class="searchBox">
-                    <input class="searchInput"type="text" name="" placeholder="Search"/>
-                    <button class="searchButton" href="#">
-                        <i class="material-icons">
-                            search
-                        </i>
-                    </button>
-                </div>
-                <button className="accBtn">Đăng Nhập</button>
+                
             </nav>
         );
     }
