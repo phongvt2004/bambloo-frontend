@@ -3,12 +3,9 @@ import Home from './Home';
 import Trend from './Trend';
 import Course from './Course'
 import Team from './Team';
-// import background1 from './resource/background1.png'
-import Login from './Login';
-import { Route, Router, Routes, BrowserRouter} from 'react-router-dom';
-// import {logo} from './resource/logo.png'
-// import { BrowserRouter as Router, Route} from 'react-router-dom';
 
+import Login from './Login';
+import { Route , Routes, BrowserRouter} from 'react-router-dom';
 
 function App() {
   return (
@@ -25,9 +22,6 @@ function App() {
           </Routes>
         </div>  
       </BrowserRouter>
-      {/* <div className="background">
-                <img src={background1} id="BackgroundImg" alt="img" />
-      </div> */}
     </div> 
   );
 }
