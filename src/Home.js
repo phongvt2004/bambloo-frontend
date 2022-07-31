@@ -3,7 +3,6 @@ import { GrSend } from 'react-icons/gr';
 import {BsFillPersonFill} from 'react-icons/bs';
 import { IconContext } from "react-icons"
 
-
 function Home(){
     return(
         <div className="Home">

@@ -2,19 +2,23 @@ import './Login.css'
 import FacebookLogin from 'react-facebook-login';
 import {FaFacebookF} from 'react-icons/fa'
 import {IconContext} from 'react-icons'
-let Auth = false;
+import jwt_decode from 'jwt-decode'
+
 function Login(){
     const responseFacebook = (response) => {
-        Auth = true;
         console.log(response);
-        console.log("logged in ");
-
+        console.log("fb logged in ");
+        
     }
     const google = window.google;
     function handleCredentialResponse(response) {
+        const decoded = jwt_decode(response.credential)
         console.log("Encoded JWT ID token: " + response.credential);
-        Auth = true;
-        console.log("logged in ");
+    
+        console.log(response.select_by);
+        for (var key in response)
+            console.log(key);
+        console.log("gg logged in ");
    
       }
     window.onload = function () {
@@ -27,7 +31,7 @@ function Login(){
             { type: "icon",size: "large" }  // customization attributes
         );
         google.accounts.id.prompt(); // also display the One Tap dialog
-
+        
     }
     return (
     <div className='Login'>
@@ -40,14 +44,16 @@ function Login(){
             <input id="ip"placeholder='Type your password'/>
             <span id="border2"></span><br/>
             <button className='loginCfrm'>Đăng nhập</button>
-            <p><a>Quên mật khẩu</a>/<a>Đăng kí</a></p>
+            <p><a href="/passForgot">Quên mật khẩu</a>/<a href='/Register'>Đăng kí</a></p>
             <div className='otherLogin' children='loginForm'>
                 <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
                 <FacebookLogin
                     appId="792377525274888"
-                    fields="name,email,picture,birthday,gender"
+                    fields="name,email,picture"
+                    scope='public_profile, email, user_birthday'
                     callback={responseFacebook}
                     cssClass="fbLogin"
+                    autoLoad={false}
                     textButton=''
                     icon={<FaFacebookF/>}
                 />

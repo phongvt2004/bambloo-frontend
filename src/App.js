@@ -8,6 +8,7 @@ import Login from './Login';
 import { Route , Routes, BrowserRouter} from 'react-router-dom';
 
 function App() {
+
   return (
     <div className="App">
       <NavBar />
@@ -19,6 +20,8 @@ function App() {
             <Route path='/Trend' element={<Trend/>}/>
             <Route path='/Team' element={<Team/>}/>
             <Route path='/Login' element={<Login/>}/>
+            <Route path='/Register' element={<Home/>}/>
+            <Route path='/passForgot' element={<Home/>}/>
           </Routes>
         </div>  
       </BrowserRouter>
