@@ -72,12 +72,12 @@ input:focus{
     background-color: black;
 }
 .loginForm{
-    display: flex;
-    flex-direction: column; 
+    margin-left: auto;
 }
 .otherLogin{
     display: flex;
-    align-self: center;
+    /* margin-left: auto; */
+    max-width: auto;
     margin-top: 40px;
 }
 .fbLogin >.icon{

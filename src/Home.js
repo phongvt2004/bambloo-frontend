@@ -2,8 +2,26 @@ import './Home.css'
 import { GrSend } from 'react-icons/gr';
 import {BsFillPersonFill} from 'react-icons/bs';
 import { IconContext } from "react-icons"
-
+const dbString = 'https://bambloo.herokuapp.com/'
 function Home(){
+    window.onload = () => {
+        
+        // const {Client} = require('pg');
+        // const client = new Client({
+        //     connectionString: dbString,
+        //     ssl: {
+        //         rejectUnauthorized: false
+        //     }
+        // });
+        // client.connect();
+        // client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+        //     if (err) throw err;
+        //     for (let row of res.rows) {
+        //       console.log(JSON.stringify(row));
+        //     }
+        //     client.end();
+        //   });
+    }
     return(
         <div className="Home">
             <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
