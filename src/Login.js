@@ -5,7 +5,12 @@ import {IconContext} from 'react-icons'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import reducers from './reducers'
+import updateUserInfo from "./reducers"
 function Login(){
+    const selector = useSelector((state) => state.userInfo.email);
+    const dispatch = useDispatch();
     const [userState, userUpdate] = useState({
         email: null,
         userId:null,
@@ -34,6 +39,7 @@ function Login(){
    
       }
     window.onload = function () {
+        console.log(selector + " !")
         const data = {
             email:"abc@gmail.com",
             password:"123",
@@ -60,6 +66,7 @@ function Login(){
         google.accounts.id.prompt(); // also display the One Tap dialog
         
     }
+    // const dispatch = useDispatch();
     const loginClickHandle = () => {
         console.log(loginInput.email);
         console.log(loginInput.password);
@@ -70,13 +77,13 @@ function Login(){
           .then(function (response) {
             console.log("log in succesfully");
             console.log(response)
-            userUpdate({
-                email: userState.email,
-                password: userState.password,
-                fullname: userState.fullname,
-                gender: userState.gender,
-                birthday: userState.birthday
-            })
+            dispatch(reducers.actions.updateUserInfo({
+                    email: response.email,
+                    userId: response.userId,
+                    accessToken: response.accessToken,
+                    refreshToken: response.refreshToken,
+                    role: response.role
+                }))
           })
           .catch(function (error) {
             console.log(error);

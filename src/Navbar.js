@@ -1,9 +1,13 @@
 import logo  from './resource/logo.png'
 import React, { Component } from "react";
-
-
+import reducer from './reducers'
+Header.defaultProps = {
+    email : "null"
+}
 function Header(props) {
-        // const path = this.props.location.pathname.slice(1);
+        // const path = this.props.location.pathname.slice(1); 
+   
+    const LoginButton = <a href='/Login' className="accBtn"></a>;
     return ( 
         <nav className = "navbar" >
             <img className = "logo" alt = "Bambloo Logo"src = { logo } >
@@ -22,10 +26,11 @@ function Header(props) {
                         </i>    
                     </button>
                 </div>
-                {props.email !== null ?<a href='/Login' className="accBtn">Đăng Nhập</a>:<a>{props.fullname} </a>}
+                {props.email !== "null" ?<a href='/Login' className="accBtn">Đăng Nhập</a>:<a>{props.fullname} </a>}
             </div> 
             
         </nav>
     );
 }
+
 export default Header;

@@ -6,12 +6,15 @@ import Team from './Team';
 
 import Login from './Login';
 import { Route , Routes, BrowserRouter} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 
-function App() {
+export default function App() {
+  const selector = useSelector((state) => state.userInfo.email);
 
+  
   return (
     <div className="App">
-      <NavBar />
+      <NavBar email={selector} />
       <BrowserRouter>
         <div className='content'>
           <Routes>
@@ -29,4 +32,3 @@ function App() {
   );
 }
 
-export default App;
