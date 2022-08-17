@@ -1,16 +1,8 @@
 .Login{
     background: #fff;
-    border-radius: 4px;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
-    max-width: 615px;
-    padding-bottom: 66px;
-    padding-top: 46px;
+    min-width: 500px;
     text-align: center;
-    width: 90%;
     padding: 10px;
-    margin-left: calc(calc(100% - 615px) * 0.5);
-    margin-top: 50px;
-    overflow: visible;
 }
 input {
     z-index: 1;

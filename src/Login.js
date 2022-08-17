@@ -1,3 +1,4 @@
+import React from 'react';
 import './Login.css'
 import FacebookLogin from 'react-facebook-login';
 import {FaFacebookF} from 'react-icons/fa'
@@ -6,11 +7,11 @@ import jwt_decode from 'jwt-decode'
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import reducers from './reducers'
-import updateUserInfo from "./reducers"
+import { update } from './reducer/action';
+
 function Login(){
-    const selector = useSelector((state) => state.userInfo.email);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    
     const [userState, userUpdate] = useState({
         email: null,
         userId:null,
@@ -38,8 +39,8 @@ function Login(){
         console.log("gg logged in ");
    
       }
-    window.onload = function () {
-        console.log(selector + " !")
+    window.onload =  () => {
+         
         const data = {
             email:"abc@gmail.com",
             password:"123",
@@ -52,9 +53,6 @@ function Login(){
             method: 'POST',
             body: JSON.stringify(data)
         };
-        // fetch('https://bambloo.herokuapp.com/register', options).then(response => response.json()).then(response => {
-        //     console.log(response);
-        // })
         google.accounts.id.initialize({
             client_id: "378372494398-m350lb72amf1r1oph9af2cnleoive0ts.apps.googleusercontent.com",
             callback: handleCredentialResponse,
@@ -66,7 +64,6 @@ function Login(){
         google.accounts.id.prompt(); // also display the One Tap dialog
         
     }
-    // const dispatch = useDispatch();
     const loginClickHandle = () => {
         console.log(loginInput.email);
         console.log(loginInput.password);
@@ -74,20 +71,15 @@ function Login(){
             email:loginInput.email,
             password:loginInput.password
           })
-          .then(function (response) {
+          .then(function (response) {   
             console.log("log in succesfully");
             console.log(response)
-            dispatch(reducers.actions.updateUserInfo({
-                    email: response.email,
-                    userId: response.userId,
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken,
-                    role: response.role
-                }))
+            dispatch(update(response))
           })
           .catch(function (error) {
             console.log(error);
           });
+          
     }
     const emailupdate = (e) => {
         onchange({
@@ -109,11 +101,11 @@ function Login(){
             <input id="ie" type="email" onChange={emailupdate} placeholder='Type your email'/>
             <span id="b1"></span><br/>
             <label>Mật khẩu: </label><br/>
-            <input id="ip"type="text" onChange={passupdate} placeholder='Type your password'/>
+            <input id="ip"type="password" onChange={passupdate} placeholder='Type your password'/>
             <span id="border2"></span><br/>
         </form>
             <button className='loginCfrm' onClick={loginClickHandle}>Đăng nhập</button>
-            <p><a href="/passForgot">Quên mật khẩu</a>/<a href='/Register'>Đăng kí</a></p>
+            <p><a href="/passForgot">Quên mật khẩu</a></p>
             <div className='otherLogin' children='loginForm'>
                 <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
                 <FacebookLogin
