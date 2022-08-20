@@ -45,6 +45,7 @@ function AccountPopUp(props){
     return (props.trigger) ? (
     <div className="PopUp" >
         <button onClick={() => {
+            props.setLoggedinTrigger(true)
             props.setTrigger(false);
         }}>close</button>
         {props.children}

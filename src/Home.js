@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux'
 
 function Home(){
     const user = useSelector(state => state.userInfo)
-    const selector = useSelector((state) => state.userInfo.email);
+    const selector = useSelector((state) => state.email);
     window.onload = () => {
         console.log('email: ');
         console.log(selector);

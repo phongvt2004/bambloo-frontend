@@ -4,12 +4,13 @@ import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
 import AccountPopUp from './AccountPopUp';
 Header.defaultProps = {
-    email : "null"
+    email : "none"
 }
 // 
 function Header(props) {
         // const path = this.props.location.pathname.slice(1); 
     const [popUp, changeState] = useState(false);
+    const [loggedIn, setLoggedinTrigger] = useState(props.email !== "none");
     const LoginButton = <a href='/Login' className="accBtn"></a>;
      const google = window.google;
         function handleCredentialResponse(response) {
@@ -22,10 +23,7 @@ function Header(props) {
             console.log("gg logged in ");
        
           }
-    window.onload = () => {
-        console.log("email: " )
-        console.log(props.email);
-    }
+    const loginButtonContent = (props.email !== "none") ? props.email : "Đăng Nhập"
     return ( 
         <nav className = "navbar" >
             <img className = "logo" alt = "Bambloo Logo" src = { logo } >
@@ -45,10 +43,11 @@ function Header(props) {
                     </button>
                 </div>
               <button className='accBtn' onClick={() => {
-                changeState(true);
-              }}>Đăng Nhập</button>               
+                if (loggedIn === true) console.log("profile");
+                else changeState(true);
+              }}>{loginButtonContent}</button>               
             </div> 
-            <AccountPopUp trigger = {popUp} setTrigger = {changeState} ></AccountPopUp>
+            <AccountPopUp trigger = {popUp} setTrigger = {changeState} setLoggedinTrigger = {setLoggedinTrigger}></AccountPopUp>
         </nav>
     );
 }

@@ -5,23 +5,38 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux/es/exports';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import allReducer from './reducer/combineReducer';
-
+import userInfo from './reducer/userInfo';
+import { PersistGate } from 'redux-persist/integration/react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const middleware = [thunk]
 
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+ 
+const persistedReducer = persistReducer(persistConfig, allReducer)
+
 const store = createStore(
-  allReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  persistedReducer,
+  composeWithDevTools());
+const persistor = persistStore(store);
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor} >
+        <App />
+      </PersistGate>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

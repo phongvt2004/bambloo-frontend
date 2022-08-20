@@ -11,14 +11,7 @@ import { update } from './reducer/action';
 
 function Login(){
     const dispatch = useDispatch()
-    
-    const [userState, userUpdate] = useState({
-        email: null,
-        userId:null,
-        accessToken: null,
-        refreshToken: null,
-        role: null
-    })
+
     const [loginInput, onchange] = useState({
         email: null,
         password: null
@@ -33,7 +26,6 @@ function Login(){
         const decoded = jwt_decode(response.credential)
         console.log("Encoded JWT ID token: " + response.credential);
     
-        console.log(response.select_by);
         for (var key in response)
             console.log(key);
         console.log("gg logged in ");

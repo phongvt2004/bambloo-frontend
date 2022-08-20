@@ -11,10 +11,10 @@ import { Provider, useDispatch, useSelector } from 'react-redux/es/exports';
 import { useState } from 'react';
 export default function App() {
   const selector = useSelector((state) => state.userInfo.email);
-  const [email, update] = useState(selector);
+
   return (
     <div className="App">
-      <NavBar email = {email}/>
+      <NavBar email = {selector}/>
       <BrowserRouter>
         <div className='content'>
           <Routes>
