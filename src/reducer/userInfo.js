@@ -10,6 +10,7 @@ const userInfo = (state = initialState, action) => {
         case 'userInfo/Update': return {
             ...action.payload.data,
         }
+        case 'userInfo/userLogout': return initialState;
         default: return state;
     }
 }

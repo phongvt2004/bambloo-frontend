@@ -9,9 +9,10 @@ import Login from './Login';
 import { Route , Routes, BrowserRouter} from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from 'react-redux/es/exports';
 import { useState } from 'react';
+import { userLogout } from './reducer/action';
 export default function App() {
   const selector = useSelector((state) => state.userInfo.email);
-
+  
   return (
     <div className="App">
       <NavBar email = {selector}/>

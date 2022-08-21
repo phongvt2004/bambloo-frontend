@@ -5,21 +5,9 @@ import {BsFillPersonFill} from 'react-icons/bs';
 import { IconContext } from "react-icons"
 import {useSelector} from 'react-redux'
 
-function Home(){
-    const user = useSelector(state => state.userInfo)
-    const selector = useSelector((state) => state.email);
-    window.onload = () => {
-        console.log('email: ');
-        console.log(selector);
-    }
-  
-
-    useEffect(() => {
-        console.log('User')
-        console.log(user)
-    }, [user])
- 
+function Home(){ 
     return(
+        
         <div className="Home">
             <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
             <div className="homecontent">

@@ -3,11 +3,14 @@ import React, { Component } from "react";
 import jwt_decode from 'jwt-decode';
 import { useState } from 'react';
 import AccountPopUp from './AccountPopUp';
+import { useDispatch } from 'react-redux';
+import {userLogout} from './reducer/action'
 Header.defaultProps = {
     email : "none"
 }
 // 
 function Header(props) {
+    const dispatch = useDispatch();
         // const path = this.props.location.pathname.slice(1); 
     const [popUp, changeState] = useState(false);
     const [loggedIn, setLoggedinTrigger] = useState(props.email !== "none");
@@ -43,7 +46,11 @@ function Header(props) {
                     </button>
                 </div>
               <button className='accBtn' onClick={() => {
-                if (loggedIn === true) console.log("profile");
+                if (loggedIn === true) {
+                    console.log("profile");
+                    dispatch(userLogout());
+                    setLoggedinTrigger(false)
+                }
                 else changeState(true);
               }}>{loginButtonContent}</button>               
             </div> 
