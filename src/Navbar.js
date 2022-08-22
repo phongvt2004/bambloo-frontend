@@ -47,9 +47,12 @@ function Header(props) {
                 </div>
               <button className='accBtn' onClick={() => {
                 if (loggedIn === true) {
-                    console.log("profile");
-                    dispatch(userLogout());
-                    setLoggedinTrigger(false)
+                    if (props.email !== "none") 
+                    {
+                        console.log("profile");
+                        dispatch(userLogout());
+                        setLoggedinTrigger(false)
+                    }
                 }
                 else changeState(true);
               }}>{loginButtonContent}</button>               

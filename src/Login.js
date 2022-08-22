@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css'
-import FacebookLogin from 'react-facebook-login';
+
 import {FaFacebookF} from 'react-icons/fa'
 import {IconContext} from 'react-icons'
 import jwt_decode from 'jwt-decode'
@@ -8,8 +8,15 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { update } from './reducer/action';
+import {auth} from "./firebase-config"
+import { signInWithPopup } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 function Login(){
+    
+    // var firebase = require('firebase');
+    // var firebaseui = require('firebaseui');
+
     const dispatch = useDispatch()
 
     const [loginInput, onchange] = useState({
@@ -85,6 +92,18 @@ function Login(){
             password: e.target.value
         })
     }
+    const fbLogin = () => {
+        const provider = new FacebookAuthProvider();
+        signInWithPopup(auth, provider)
+        .then((response) => {console.log(response)})
+        .catch((error) => {console.log(error)});
+
+    }
+    const ggLogin = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+       .then((response) => {console.log(response)})
+    }
     return (
     <div className='Login'>
        
@@ -100,16 +119,8 @@ function Login(){
             <p><a href="/passForgot">Quên mật khẩu</a></p>
             <div className='otherLogin' children='loginForm'>
                 <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
-                <FacebookLogin
-                    appId="792377525274888"
-                    fields="name,email,picture"
-                    scope='public_profile, email, user_birthday'
-                    callback={responseFacebook}
-                    cssClass="fbLogin"
-                    autoLoad={false}
-                    textButton=''
-                    icon={<FaFacebookF/>}
-                />
+                <div className='fbLogin' onClick = {fbLogin}><FaFacebookF/></div>
+                <div className='ggLogin' onClick = {ggLogin}><FaFacebookF/></div>
                 </IconContext.Provider>
                 <div id='buttonDiv'></div>
             </div>

@@ -9,7 +9,10 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "boostrap": "^2.0.0",
+    "bower": "^1.8.14",
     "cors": "^2.8.5",
+    "firebase": "^9.9.3",
+    "firebaseui": "^6.0.1",
     "jwt-decode": "^3.1.2",
     "pg": "^8.7.3",
     "react": "^18.2.0",
@@ -28,6 +31,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
+    "useref": "^1.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

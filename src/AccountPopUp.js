@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useRef} from 'react';
 import Login from "./Login";
 import Register from "./Register";
 import { useState } from "react";
@@ -31,7 +31,6 @@ function AccountPopUp(props){
             );
         }
     }
-    
 
     const handleClick = (e) => {
         changePage(e.target.id)
@@ -41,9 +40,24 @@ function AccountPopUp(props){
             sc : tmp
         })
     }
+    const refOne = useRef(null);
+  
+    useEffect(() => {
+        const handleClickOutside = (e) =>{
+           if ((refOne.current !== null)){
+                if (!refOne.current.contains(e.target)) props.setTrigger(false);
+           }
+        }
+        document.addEventListener("click", handleClickOutside, true);
+        return () => {
+            document.removeEventListener("click", handleClickOutside, true);
+        }
+    }, [])
+    
+
     
     return (props.trigger) ? (
-    <div className="PopUp" >
+    <div className="PopUp" ref={refOne}>
         <button onClick={() => {
             props.setLoggedinTrigger(true)
             props.setTrigger(false);

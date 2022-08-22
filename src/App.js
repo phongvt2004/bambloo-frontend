@@ -15,7 +15,7 @@ export default function App() {
   
   return (
     <div className="App">
-      <NavBar email = {selector}/>
+      <NavBar email = {selector !=="" ? selector : "none"}/>
       <BrowserRouter>
         <div className='content'>
           <Routes>
