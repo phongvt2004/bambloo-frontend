@@ -4,15 +4,22 @@ import Home from './Home';
 import Trend from './Trend';
 import Course from './Course'
 import Team from './Team';
-import Register from './Register';
 import Login from './Login';
 import { Route , Routes, BrowserRouter} from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from 'react-redux/es/exports';
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import { userLogout } from './reducer/action';
+// import { useDispatch } from 'react-redux/es/exports';
+
 export default function App() {
   const selector = useSelector((state) => state.userInfo.email);
-  
+  const dispatch = useDispatch();
+  const [cookies, setCookie] = useCookies(['keepMeSignin']);
+  window.onload = () => {
+    if (cookies.keepMeSignin !== true) console.log('logged out');
+    else console.log('stayed');
+  }
   return (
     <div className="App">
       <NavBar email = {selector !=="" ? selector : "none"}/>
@@ -20,13 +27,9 @@ export default function App() {
         <div className='content'>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/Courses' element={<Course/>}/>
+            <Route path='/Course' element={<Course/>}/>
             <Route path='/Trend' element={<Trend/>}/>
             <Route path='/Team' element={<Team/>}/>
-            <Route path='/Login' element={<Login/>}/>
-            {/* <Route path='/Register' element={<Register/>} /> 
-            <Route path='/Register' element={<Register/>}/>
-            <Route path='/passForgot' element={<Register/>}/> */}
           </Routes>
         </div>  
       </BrowserRouter>

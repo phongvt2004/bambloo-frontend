@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "firebase": "^9.9.3",
     "firebaseui": "^6.0.1",
+    "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
     "pg": "^8.7.3",
     "react": "^18.2.0",

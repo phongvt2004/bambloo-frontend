@@ -14,7 +14,7 @@ function Header(props) {
         // const path = this.props.location.pathname.slice(1); 
     const [popUp, changeState] = useState(false);
     const [loggedIn, setLoggedinTrigger] = useState(props.email !== "none");
-    const LoginButton = <a href='/Login' className="accBtn"></a>;
+    // const LoginButton = <a href='/Login' className="accBtn"></a>;
      const google = window.google;
         function handleCredentialResponse(response) {
             const decoded = jwt_decode(response.credential)
@@ -36,7 +36,7 @@ function Header(props) {
                 <a href = "/" > Trang chủ </a> 
                 <a href = "/Trend" > Xu hướng </a> 
                 <a href = "/Course" > Khóa học </a> 
-                <a href = "/Team" > Đội ngũ </a>
+                <a href = "/Team" > Phản hồi đến chúng tôi </a>
                 <div class="searchBox">
                     <input class="searchInput"type="text" name="" placeholder="Search"/>
                     <button class="searchButton" href="#">
@@ -47,12 +47,14 @@ function Header(props) {
                 </div>
               <button className='accBtn' onClick={() => {
                 if (loggedIn === true) {
+                    console.log(props.email);
                     if (props.email !== "none") 
                     {
                         console.log("profile");
                         dispatch(userLogout());
                         setLoggedinTrigger(false)
                     }
+                    else changeState(true);
                 }
                 else changeState(true);
               }}>{loginButtonContent}</button>               

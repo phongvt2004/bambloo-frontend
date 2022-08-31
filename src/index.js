@@ -14,9 +14,9 @@ import thunk from 'redux-thunk';
 import allReducer from './reducer/combineReducer';
 import userInfo from './reducer/userInfo';
 import { PersistGate } from 'redux-persist/integration/react';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { CookiesProvider } from 'react-cookie';
 
-const middleware = [thunk]
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const persistConfig = {
   key: 'root',
@@ -31,11 +31,14 @@ const store = createStore(
 const persistor = persistStore(store);
 root.render(
   // <React.StrictMode>
+  <CookiesProvider>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor} >
+      <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
     </Provider>
+  </CookiesProvider>
+  
   // </React.StrictMode>
 );
 

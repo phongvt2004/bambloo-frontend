@@ -1,0 +1,8 @@
+.report-form > textarea{
+    width: 1000px;
+    height: 500px;
+}
+.report-form > input[type="submit"] {
+    height: max-content;
+    width: 1000px;
+}

@@ -3,6 +3,10 @@
     min-width: 500px;
     text-align: center;
     padding: 10px;
+    
+}
+a{
+    color: black;
 }
 input {
     z-index: 1;
@@ -10,11 +14,26 @@ input {
 	border: none;
     width: 100%;
     border: 0;
-    border-bottom: 2px solid #929fba;
 }
 #b1 {
-    border: 1px solid #666666!important;
-    background-color: #666666;
+    border: 1px solid black!important;
+    background-color: black;
+}
+.keepsignin{
+    display: flex;
+    text-align: left !important;
+    
+}
+.keepsignin > p{
+    font-size: 16px;
+} 
+.keepsignin > input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:20px;
+    height: 20px;
+    margin-left: 10px;
+    left: 0;
 }
 #ie ~ #b1{
     width: 0;
@@ -22,6 +41,7 @@ input {
 #ie:focus ~ #b1 {
     width: 617px;
     transition: 0.5s;
+    width: 2px;
 }
 #border2 {
     border: 1px solid #666666!important;
@@ -39,20 +59,6 @@ input {
     background-color: #666666;
 }
 
-/* @keyframes inputFocus {
-    0% {
-        border-bottom: 0 #666666;
-      }
-    
-    100% {
-        border-bottom: 100% 2px #666666;
-      }
-}
-input:focus{
-    animation: inputFocus 1s;
-    
-} */
-
 .loginCfrm{
     font-size: 15px;
     padding: 10px;
@@ -64,30 +70,68 @@ input:focus{
     color: white;
     background-color: black;
 }
-.loginForm{
-    margin-left: auto;
-}
-.otherLogin{
+
+
+.google-btn{
+    /* margin-bottom: 10px; */
     display: flex;
-    /* margin-left: auto; */
-    max-width: auto;
-    margin-top: 40px;
+    width: 220px;
+    height: 44px;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+    background-color: #4285f4;
 }
-.fbLogin >.icon{
-    height: 25px;
-    width: 25px;
-    fill: white;
-    background-color: rgb(24,119,242);
+.google-icon{
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+   
+}
+.google-icon-wrapper{
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    margin: 2px;
+}
+.btn-text{
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fb-btn{
+    text-align: left;
+    margin-top: 10px;
+    display: flex;
+    width: 220px;
+    height: 44px;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+    background-color: #4285f4;
+}
+.fb-icon-wrapper > .icon{
+    margin-left: 5.5px;
+    margin-top: 10px;
+    /* mar */
+    width: 20px;
+    height: 20px;
+    fill: #4285f4;
  
 }
-.fbLogin{
-    height: 40px;
-    width: 40px;
-    border-radius: 10%;
-    border: none;
-    background-color: rgb(24,119,242);
-    margin: 10px;
+.fb-icon-wrapper{
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 7px;
 }
-#buttonDiv{
-    margin: 10px;
-}
+

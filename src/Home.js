@@ -11,7 +11,7 @@ function Home(){
         <div className="Home">
             <IconContext.Provider value={{size:"15px", className:"icon", color:"#ffffff"}}>
             <div className="homecontent">
-                `<div className="left">
+                <div className="left">
                     <div class  ="topContent">
                         <h3>HỌC TRỰC TUYẾN</h3>
                         <h1>Giáo dục nền tảng số</h1>
@@ -34,7 +34,6 @@ function Home(){
                     <div className="box" id="box2">
                         <div class="boxContent" >
                             <div class="icon-wrapper" id="i2">
-                                {/* <i class="material-icons">near_me</i> */}
                                 <GrSend className="icon" />
                             </div>
                             <p class="pnum">Number</p>
@@ -54,6 +53,7 @@ function Home(){
                 </div>
             </div>
             </IconContext.Provider>
+            
         </div>
     );
 }
